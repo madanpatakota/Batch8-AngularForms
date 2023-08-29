@@ -2,7 +2,7 @@
   <div class="row">
     <!-- ngForm which is useful for you to print form in the format of object -->
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form name="EmployeeName" (ngSubmit)="evtSubmit(form)" #form="ngForm" >
+      <form name="EmployeeName" (ngSubmit)="evtSubmit(form)" #form="ngForm">
         <div>
           <div class="form-group">
             <label class="col-form-label">Shcool Name * </label>
@@ -14,6 +14,7 @@
               ngModel
               #schoolName="ngModel"
               required
+              minlength="5"
             />
 
             <!-- class="form-control ng-untouched ng-pristine ng-valid" -->
@@ -30,18 +31,80 @@
           <!-- touched chesi pristine(amazon courier vachi meeru open cheyaka pothe) stage lo vunte -->
           <!-- <small *ngIf="schoolName.touched && schoolName.pristine">Please enter your school</small> -->
 
-
-
           <!-- <small *ngIf="schoolName.touched && schoolName.invalid"
             >Please enter your school</small
           > -->
 
-          <small style="color:red" *ngIf="schoolName.touched && schoolName.errors?.['required']"
+          <small
+            style="color: red"
+            *ngIf="schoolName.touched && schoolName.errors?.['required']"
             >Please enter your school</small
           >
+          <small style="color: red" *ngIf="schoolName.touched && schoolName.errors?.['minlength']">
+             Please enter the atleast 5 charchters.
+          </small>
+
+          <div>
+            <div class="form-group">
+              <label class="col-form-label">Principle Name * </label>
+              <input
+                name="principleName"
+                class="form-control"
+                type="text"
+                placeholder="Prinicple Name"
+                ngModel
+                #principleName="ngModel"
+                required
+                maxlength="15"
+              />
+            </div>
+            <small
+              style="color: red"
+              *ngIf="principleName.touched && principleName.errors?.['required']"
+              >Please enter PrinicipleName</small
+            >
+            <small
+              style="color: red"
+              *ngIf="principleName.touched && principleName.errors?.['maxlength']"
+              >Priniciple Name should not more than 15 charcters</small
+            >
+          </div>
+
+
+          <div>
+            <div class="form-group">
+              <label class="col-form-label">Principle Email * </label>
+              <input
+                name="principleEmail"
+                class="form-control"
+                type="text"
+                placeholder="Prinicple Email"
+                ngModel
+                #principleEmail="ngModel"
+                required
+                email
+              />
+            </div>
+            <small
+              style="color: red"
+              *ngIf="principleEmail.touched && principleEmail.errors?.['required']"
+              >Please enter Principle Email</small
+            >
+            <small
+              style="color: red"
+              *ngIf="principleEmail.touched && principleEmail.errors?.['email']"
+              >Please enter Principle Email</small
+            >
+          </div>
 
           <div class="form-group" style="margin-top: 20px">
-            <button [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+            <!-- <button [disabled]="form.invalid" class="btn btn-primary">
+              Submit
+            </button> -->
+
+              <button class="btn btn-primary">
+              Submit
+            </button>
           </div>
         </div>
       </form>
