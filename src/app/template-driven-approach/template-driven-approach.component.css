@@ -1,0 +1,38 @@
+
+
+/* dirty   : 
+         Real time example :  
+         Amazon order : 
+         Amazon order : Mobile once you open check 
+                        Mobile order(packing) 
+*/
+
+/* pristine : 
+         Real time example :
+         Amazon order : Mobile order(packing) 
+*/
+
+
+/* valid invalid 
+ 
+  built in validators 
+    1.required
+/*  
+*/
+
+
+/* 
+input.ng-touched.ng-dirty.ng-invalid{
+  border : 3px solid red;
+}
+
+
+input.ng-pristine.ng-invalid.ng-touched{
+  border : 3px solid red;
+} */
+
+input.ng-touched.ng-invalid{
+  border : 2px solid red;
+}
+
+
