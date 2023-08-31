@@ -64,32 +64,103 @@
               </small>
 
               <small
-              style="color: red"
-              *ngIf="schoolForm.get('principleEmail')?.touched 
+                style="color: red"
+                *ngIf="schoolForm.get('principleEmail')?.touched 
                 && schoolForm.get('principleEmail')?.errors?.['email']"
-            >
-              Email format is not correct . Please enter the proper Principle Email
-            </small>
+              >
+                Email format is not correct . Please enter the proper Principle
+                Email
+              </small>
 
-            <small
-              style="color: red"
-              *ngIf="schoolForm.get('principleEmail')?.touched 
+              <small
+                style="color: red"
+                *ngIf="schoolForm.get('principleEmail')?.touched 
                 && schoolForm.get('principleEmail')?.errors?.['minlength']"
-            >
-              Email charcters should be  <strong> 10 </strong>
-            </small>
+              >
+                Email charcters should be <strong> 10 </strong>
+              </small>
 
-            <small
-            style="color: red"
-            *ngIf="schoolForm.get('principleEmail')?.touched 
+              <small
+                style="color: red"
+                *ngIf="schoolForm.get('principleEmail')?.touched 
               && schoolForm.get('principleEmail')?.errors?.['notvaliddomain']"
-          >
-             Please enter only gmail and hotmail
-          </small>
+              >
+                Please enter only gmail and hotmail
+              </small>
             </div>
           </div>
           <div class="form-group" style="margin-top: 20px">
             <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="container" style="margin: 50px; padding: 50px">
+  <h3>Main Form with sub groups</h3>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="patientMainForm">
+        <div style="border:1px  solid  red" formGroupName="patientDetails">
+          <div class="form-group">
+            <label class="col-form-label"> Patient Name * </label>
+            <input
+              name="patientName"
+              class="form-control"
+              type="text"
+              placeholder="Patient Name"
+              formControlName="patientName"
+            />
+            <small
+              style="color: red"
+              *ngIf="patientMainForm.get('patientDetails')?.get('patientName')?.touched 
+                  && patientMainForm.get('patientDetails')?.get('patientName')?.errors?.['required']"
+            >
+              Please enter Patient Name
+            </small>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label"> Pateint Blood Group </label>
+            <input
+              name="pateintBloodGroup"
+              class="form-control"
+              type="text"
+              placeholder="Patient Name"
+              formControlName="pateintBloodGroup"
+            />
+          </div>
+        </div>
+        <div style="border:1px  solid  green" formGroupName="patientPersonalDetails">
+          <div class="form-group">
+            <label class="col-form-label"> Patient Father Name * </label>
+            <input
+              name="patientFatherName"
+              class="form-control"
+              type="text"
+              placeholder="Patient Father Name"
+              formControlName="patientFatherName"
+            />
+            <small
+              style="color: red"
+              *ngIf="patientMainForm.get('patientPersonalDetails')?.get('patientFatherName')?.touched 
+                  && patientMainForm.get('patientPersonalDetails')?.get('patientFatherName')?.errors?.['required']"
+            >
+              Please Enter Patient Father Name
+            </small>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label"> Pateint Mother Name </label>
+            <input
+              name="patientMotherName"
+              class="form-control"
+              type="text"
+              placeholder="Patient Mother Name"
+              formControlName="patientMotherName"
+            />
           </div>
         </div>
       </form>

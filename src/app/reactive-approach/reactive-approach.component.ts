@@ -15,6 +15,8 @@ import {
 export class ReactiveApproachComponent implements OnInit {
   schoolForm: FormGroup;
 
+  patientMainForm : FormGroup;
+
   ngOnInit(): void {
     this.schoolForm = new FormGroup({
       schoolName: new FormControl(null, Validators.required),
@@ -26,6 +28,19 @@ export class ReactiveApproachComponent implements OnInit {
         this.allowSpecificDomain,
       ]),
     });
+
+
+    this.patientMainForm = new FormGroup({
+        'patientDetails' : new FormGroup({
+           'patientName' : new FormControl(null , Validators.required),
+           'pateintBloodGroup' : new FormControl(null)
+        }),
+        'patientPersonalDetails' : new FormGroup({
+            'patientFatherName' : new FormControl(null, Validators.required ),
+            'patientMotherName' : new FormControl(null)
+        })
+    })
+
 
     //this.getName(1)
   }
@@ -59,4 +74,16 @@ export class ReactiveApproachComponent implements OnInit {
     }
     return null;
   }
+
+
+
+   
+ 
+   
+
+
+
+
+
+
 }
